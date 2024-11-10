@@ -38,12 +38,11 @@ movieRoutes.js
 Routes related to retrieving and managing movies.
 
 Get All Movies (GET /movies): Retrieves a list of all movies in the database.
-Get Movie by ID (GET /): Fetches a specific movie by its ID.
-Get Movies by Category (GET /category/): Retrieves movies within a specified category by category ID.
+Get Movie by ID (GET /
+): Fetches a specific movie by its ID.
+Get Movies by Category (GET /category/
+): Retrieves movies within a specified category by category ID.
 Search Movies by Title (GET /search/movie): Searches for movies based on a title query parameter.
-
-
-
 userRoutes.js
 Routes related to user management and authentication.
 
@@ -55,26 +54,31 @@ Logout User (GET /logout): Logs the user out of the application.
 watchlistRoutes.js
 Routes related to managing user watchlists.
 
-Add Movie to Watchlist (GET /add/watchlist//): Adds a specified movie to the watchlist for a given user.
-
-
-
+Add Movie to Watchlist (GET /add/watchlist/
+/
+): Adds a specified movie to the watchlist for a given user.
 reviewRoutes.js
 Routes related to movie reviews.
 
-Write Review Page (GET /review//): Renders the review page for a specific movie and user.
-Submit Review (POST /review//): Posts a review for a specific movie by a user.
-
-
+Write Review Page (GET /review/
+/
+): Renders the review page for a specific movie and user.
+Submit Review (POST /review/
+/
+): Posts a review for a specific movie by a user.
 userManagementRoutes.js
 Additional routes for managing user information and authentication.
 
 Get All Users (GET /userss): Fetches a list of all registered users.
-Get User by ID (GET /users/): Retrieves a specific user’s details by their ID.
+Get User by ID (GET /users/
+): Retrieves a specific user’s details by their ID.
 Create User (POST /users): Adds a new user to the system.
-Update User by ID (PUT /users/): Updates details of a specific user by their ID.
-Delete User by ID (DELETE /users/): Deletes a user record from the system by ID.
+Update User by ID (PUT /users/
+): Updates details of a specific user by their ID.
+Delete User by ID (DELETE /users/
+): Deletes a user record from the system by ID.
 
+Basic error handling is implemented in index.js to manage both 404 errors and other unhandled exceptions.
 ---
 
 Basic error handling is implemented in index.js to manage both 404 errors and other unhandled exceptions.
