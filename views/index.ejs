@@ -1,0 +1,23 @@
+
+
+<div class="main-container">
+    <% movies.forEach(movie => { %>
+        <% if(session.userId){ %>
+        <a href="/api/movies/<%= movie.movie_id %>" class="movie-link">
+            <div class="movie-card">
+                <img src="/<%= movie.poster_url %>" alt="<%= movie.title %> Poster">
+                <h3><%= movie.title %></h3>
+            </div>
+        </a>
+        <% } else { %>
+            <a href="http://localhost:3001/api/users/login" class="movie-link">
+                <div class="movie-card">
+                    <img src="/<%= movie.poster_url %>" alt="<%= movie.title %> Poster">
+                    <h3><%= movie.title %></h3>
+                </div>
+            </a>
+
+        <% } %>
+    <% }); %>
+</div>
+

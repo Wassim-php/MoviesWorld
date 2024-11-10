@@ -1,0 +1,30 @@
+<div class="movie-details">
+    <div class="trailer-container">
+        <iframe 
+            width="100%" 
+            height="400px" 
+            src="<%= movie.trailer_url %>" 
+            title="<%= movie.title %> Trailer" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <img src="/<%= movie.poster_url %>" alt="<%= movie.title %> Poster">
+    <div class="movie-info">
+        <h2><%= movie.title %></h2>
+        <p><%= movie.description %></p>
+        <p class="category"><strong>Category:</strong> <%= category %></p>
+        <p class="release-date"><strong>Release Date:</strong> <%= movie.release_year %></p>
+    </div>
+    
+   
+    <div class="review-button-container">
+        <a href="/api/users/review/<%= movie.movie_id %>/<%= id %>" class="review-button">Write a Review</a>
+    </div>
+    <div class="watchlist-button-container">
+        <a href="/api/users/add/watchlist/<%= id %>/<%= movie.movie_id %>" class="watchlist-button">Add to Watchlist</a>
+    </div>
+
+</div>
