@@ -28,7 +28,7 @@ This Node.js API allows users to explore a collection of movies, post reviews, a
 
 1. Clone the repository and install dependencies:
    ```bash
-   git clone https://github.com/yourusername/movieworld
+   git clone https://github.com/Wassim-php/MoviesWorld
    cd movieworld
    npm install 
 
