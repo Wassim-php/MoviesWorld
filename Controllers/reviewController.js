@@ -5,6 +5,7 @@ const movieController = require('../Controllers/movieController');
 const userServices = require('../services/userServices');
 const userController = require('./userController');
 const reviewServices = require('../services/reviewServices');
+const movieServices = require('../services/movieServices');
 
 class reviewController{
     static async findAllReviews(req,res){
@@ -33,7 +34,7 @@ static async findReviewForMovie(req, res) {
             const { movieId, userId } = req.params;
             
             
-            const movie = await movieController.findMovieById(movieId); 
+            const movie = await movieServices.findMovieById(movieId); 
             const user = await userServices.getUserById(userId);   
     
             
