@@ -2,7 +2,7 @@ const {initDB} = require('../config/database');
 const movieController = require('../Controllers/movieController');
 const userServices = require('../services/userServices');
 class reviewServices{
-    static async findAllReviews(req,res){
+    static async findAllReviews(){
         try{
         const pool = await initDB();
        const [results] = await pool.query('SELECT * FROM review ');
@@ -12,10 +12,10 @@ class reviewServices{
         }
     }
 
-    static async findReviewForMovie(req, res) {
+    static async findReviewForMovie(movieId) {
     try {
         const pool = await initDB();
-        const movie = await movieController.findMovieById(req.params.movieId);
+        const movie = await movieController.findMovieById(movieId);
         const [result] = await pool.query(`
             SELECT SUM(rating) AS total_rating, COUNT(rating) AS review_count
             FROM review
