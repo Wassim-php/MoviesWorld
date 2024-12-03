@@ -1,0 +1,27 @@
+<div class="movie-details">
+    <div class="movie-details">
+        <div class="trailer-container">
+            <video width="100%" height="400px" controls>
+                <source src="<%= movie.trailer_url%>" type="video/mp4">
+                
+            </video>
+        </div>
+    </div>
+
+    <img src="/<%= movie.poster_url %>" alt="<%= movie.title %> Poster">
+    <div class="movie-info">
+        <h2><%= movie.title %></h2>
+        <p><%= movie.description %></p>
+        <p class="category"><strong>Category:</strong> <%= category %></p>
+        <p class="release-date"><strong>Release Date:</strong> <%= movie.release_year %></p>
+    </div>
+    
+   
+    <div class="review-button-container">
+        <a href="/api/users/review/<%= movie.movie_id %>/<%= id %>" class="review-button">Write a Review</a>
+    </div>
+    <div class="watchlist-button-container">
+        <a href="/api/users/add/watchlist/<%= id %>/<%= movie.movie_id %>" class="watchlist-button">Add to Watchlist</a>
+    </div>
+
+</div>
