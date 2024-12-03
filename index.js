@@ -8,7 +8,7 @@ const Movie = require('./Models/Movie');
 const path = require('path');
 app.use(express.static(path.join(__dirname, 'public')));
 //Creating a static port, khalas 3eb
-const PORT= 3001;
+const PORT= process.env.PORT || 3001;
 //Middleware to push JSON
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
