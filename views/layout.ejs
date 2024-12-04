@@ -224,12 +224,9 @@
     
 </head>
 <body>
-
-    
     <header>
-        <h1>Movies World</h1>
+        <%- include('partials/header.ejs') %>
     </header>
-
     <nav>
         <div class="nav-links">
             <a href="/">Home</a>
@@ -262,10 +259,8 @@
     <div class="main-container">
         <%- body %>
     </div>
-
-    <footer>
-        <p>&copy; 2024 Movies World. All rights reserved.</p>
-    </footer>
-
 </body>
+<footer>
+    <%- include('partials/footer.ejs') %> 
+</footer>   
 </html>
