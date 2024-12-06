@@ -46,11 +46,13 @@ app.set('views', path.join(__dirname, 'views')); // Set the views directory
 // Import route handlers
 const appRoutes = require('./routes/userRoutes'); 
 const movieRoutes = require('./routes/movieRoutes'); 
+const watchListRoutes = require('./routes/watchListRoutes');
 const movieController = require('./Controllers/movieController'); 
 
 // Define API routes
 app.use('/api/users', appRoutes);
 app.use('/api/movies', movieRoutes); 
+app.use('/api/watchList', watchListRoutes);
 
 // Define the home route
 app.get('/', async (req, res) => {

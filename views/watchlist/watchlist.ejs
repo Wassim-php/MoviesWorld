@@ -1,0 +1,22 @@
+
+<h1>Your Watchlist</h1>
+<table>
+    <tbody>
+        <% if (movies.length > 0) { %>
+            <% movies.forEach(movie => { %>
+                <tr>
+                    <td><%= movie.title %></td> 
+                    <td class = "text-right">
+                        <form action="/api/watchList/delete/<%= session.userId %>/<%= movie.movie_id %>" method="POST">
+                            <button type="submit" class="delete-button">Remove</button> 
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        <% } else { %>
+            <tr>
+                <td colspan="2">No movies in your watchlist.</td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>

@@ -23,9 +23,6 @@ Router.post('/create',validateUser,(req,res)=>{
 Router.get('/logout', (req,res)=> {
     userController.logout(req,res);
 });
-Router.get('/add/watchlist/:userId/:movieId',(req,res)=>{
-    watchListController.addMovieToWatchList(req,res);
-});
 Router.get('/review/:movieId/:userId', async (req, res) => {
   reviewController.getToReview(req,res);
 });
