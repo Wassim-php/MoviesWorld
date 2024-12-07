@@ -5,7 +5,11 @@
         <% if (movies.length > 0) { %>
             <% movies.forEach(movie => { %>
                 <tr>
-                    <td><%= movie.title %></td> 
+                    <td>
+                        <a href="/api/movies/<%= movie.movie_id %>" 
+                           style="color: inherit; text-decoration: none;">
+                        <%= movie.title %></a>
+                    </td>  
                     <td class = "text-right">
                         <form action="/api/watchList/delete/<%= session.userId %>/<%= movie.movie_id %>" method="POST">
                             <button type="submit" class="delete-button">Remove</button> 
