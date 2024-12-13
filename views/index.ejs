@@ -1,23 +1,19 @@
-
-
 <div class="main-container">
-    <% movies.forEach(movie => { %>
-        <% if(session.userId){ %>
-        <a href="/api/movies/<%= movie.movie_id %>" class="movie-link">
-            <div class="movie-card">
-                <img src="/<%= movie.poster_url %>" alt="<%= movie.title %> Poster">
-                <h3><%= movie.title %></h3>
-            </div>
-        </a>
-        <% } else { %>
-            <a href="http://localhost:3001/api/users/login" class="movie-link">
+    <% movies.forEach(movie => { %> <!-- Iterate over each movie in the movies array -->
+        <% if (session.userId) { %> <!-- Check if the user is logged in (session.userId is defined) -->
+            <a href="/api/movies/<%= movie.movie_id %>" class="movie-link"> <!-- Link to the movie details page -->
                 <div class="movie-card">
-                    <img src="/<%= movie.poster_url %>" alt="<%= movie.title %> Poster">
-                    <h3><%= movie.title %></h3>
+                    <img src="/<%= movie.poster_url %>" alt="<%= movie.title %> Poster"> <!-- Display the movie poster -->
+                    <h3><%= movie.title %></h3> <!-- Display the movie title -->
                 </div>
             </a>
-
+        <% } else { %> <!-- If the user is not logged in -->
+            <a href="http://localhost:3001/api/users/login" class="movie-link"> <!-- Link to the login page -->
+                <div class="movie-card">
+                    <img src="/<%= movie.poster_url %>" alt="<%= movie.title %> Poster"> <!-- Display the movie poster -->
+                    <h3><%= movie.title %></h3> <!-- Display the movie title -->
+                </div>
+            </a>
         <% } %>
     <% }); %>
 </div>
-

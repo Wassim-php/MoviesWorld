@@ -1,8 +1,6 @@
-
-
 <div class="main-container">
-    <% if (typeof errorMessage !== 'undefined') { %>
-        <p class="error-message"><%= errorMessage %></p>
+    <% if (typeof errorMessage !== 'undefined') { %> <!-- Check if an error message is defined -->
+        <p class="error-message"><%= errorMessage %></p> <!-- Display the error message if it exists -->
     <% } %>
     
     <form action="/api/users/login" method="POST" class="form-container">
@@ -20,14 +18,12 @@
         <p class="signup-text">
             Don't have an account?
             <a href="http://localhost:3001/api/users/register">Sign Up</a>
-
         </p>
-
-        
 
         <button type="submit" class="register-btn">Login</button>
     </form>
 </div>
+<!-- CSS styling for the error message, sign up-tet, signup-link-->
 <style>
     .error-message {
         color: red;
@@ -39,9 +35,8 @@
         font-size: 14px;
         color: white;
     }
-    .signup-link{
+    .signup-link {
         color: yellow;
         text-decoration: underline;
     }
 </style>
-

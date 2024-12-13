@@ -1,25 +1,24 @@
-
 <h1>Your Watchlist</h1>
 <table>
     <tbody>
-        <% if (movies.length > 0) { %>
-            <% movies.forEach(movie => { %>
+        <% if (movies.length > 0) { %> <!-- Check if there are movies in the watchlist -->
+            <% movies.forEach(movie => { %> <!-- Iterate over each movie in the watchlist -->
                 <tr>
                     <td>
                         <a href="/api/movies/<%= movie.movie_id %>" 
-                           style="color: inherit; text-decoration: none;">
-                        <%= movie.title %></a>
+                           style="color: inherit; text-decoration: none;">  <!-- Link to movie details -->
+                        <%= movie.title %></a>  <!-- Display the movie title -->
                     </td>  
-                    <td class = "text-right">
-                        <form action="/api/watchList/delete/<%= session.userId %>/<%= movie.movie_id %>" method="POST">
-                            <button type="submit" class="delete-button">Remove</button> 
+                    <td class="text-right">
+                        <form action="/api/watchList/delete/<%= session.userId %>/<%= movie.movie_id %>" method="POST" onsubmit="return confirm('Are you sure you want to remove this movie from your watchlist?');"> <!-- Form to remove movie from watchlist -->
+                            <button type="submit" class="delete-button">Remove</button> <!-- Button to submit the form -->
                         </form>
                     </td>
                 </tr>
-            <% }) %>
-        <% } else { %>
+            <% }) %>  <!-- End of movie iteration -->
+        <% } else { %> <!-- If no movies are in the watchlist -->
             <tr>
-                <td colspan="2">No movies in your watchlist.</td>
+                <td colspan="2">No movies in your watchlist.</td> <!-- Message indicating the watchlist is empty -->
             </tr>
         <% } %>
     </tbody>

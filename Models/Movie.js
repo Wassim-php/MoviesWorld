@@ -17,8 +17,7 @@ class Movie {
     
   }
   
-  // Simulate a storage for movies (this could be replaced with a real database later)
-  Movie.movies = [];
+  
   
   module.exports = Movie;
   

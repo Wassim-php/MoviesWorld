@@ -3,318 +3,316 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title><%= title %></title> <!-- Set the title of the page dynamically -->
 
     <style>
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            box-sizing: border-box; /* Ensure consistent box sizing */
         }
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #000;
-            color: #fff;
-            line-height: 1.6;
+            font-family: 'Arial', sans-serif; /* Set the font for the body */
+            background-color: #000; /* Set background color to black */
+            color: #fff; /* Set text color to white */
+            line-height: 1.6; /* Set line height for readability */
             display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            flex-direction: column; /* Arrange children in a column */
+            min-height: 100vh; /* Ensure the body takes at least full viewport height */
         }
         header, footer {
-            background-color: rgba(79, 146, 245, 0.7);
-            color: white;
-            padding: 10px;
-            text-align: center;
+            background-color: rgba(79, 146, 245, 0.7); /* Set background color with transparency */
+            color: white; /* Set text color to white */
+            padding: 10px; /* Add padding */
+            text-align: center; /* Center text */
         }
         nav {
-            background-color: rgba(79, 146, 245, 0.7);
-            padding: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background-color: rgba(79, 146, 245, 0.7); /* Set navigation background color */
+            padding: 10px; /* Add padding */
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space out items */
+            align-items: center; /* Center items vertically */
         }
         .nav-links {
-            display: flex;
-            align-items: center;
+            display: flex; /* Use flexbox for navigation links */
+            align-items: center; /* Center items vertically */
         }
         nav a {
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            font-size: 1.2em;
+            color: white; /* Set link color to white */
+            text-decoration: none; /* Remove underline from links */
+            padding: 10px; /* Add padding */
+            font-size: 1.2em; /* Set font size */
         }
         nav a:hover {
-            background-color: #555;
+            background-color: #555; /* Change background on hover */
         }
 
         .genres-button {
-            position: relative;
+            position: relative; /* Position relative for dropdown */
         }
         .genres-dropdown {
-            display: none;
-            position: absolute;
-            background-color: #222;
-            color: #fff;
-            border-radius: 5px;
-            padding: 10px;
-            width: 150px;
-            top: 40px;
-            right: 0;
+            display: none; /* Hide dropdown by default */
+            position: absolute; /* Position dropdown absolutely */
+            background-color: #222; /* Set dropdown background color */
+            color: #fff; /* Set dropdown text color */
+            border-radius: 5px; /* Round corners */
+            padding: 10px; /* Add padding */
+            width: 150px; /* Set width */
+            top: 40px; /* Position below the button */
+            right: 0; /* Align to the right */
         }
         .genres-dropdown a {
-            display: block;
-            color: #fff;
-            padding: 5px;
-            text-decoration: none;
+            display: block; /* Display links as block elements */
+            color: #fff; /* Set link color to white */
+            padding: 5px; /* Add padding */
+            text-decoration: none; /* Remove underline */
         }
         .genres-dropdown a:hover {
-            background-color: #555;
+            background-color: #555; /* Change background on hover */
         }
         .genres-button:hover .genres-dropdown {
-            display: block;
+            display: block; /* Show dropdown on hover */
         }
         
         .search-container {
-            display: flex;
-            align-items: center;
-            margin-right: 20px; 
+            display: flex; /* Use flexbox for search container */
+            align-items: center; /* Center items vertically */
+            margin-right: 20px; /* Add margin to the right */
         }
         .search-container input[type="text"] {
-            padding: 5px;
-            font-size: 1em;
-            border: none;
-            border-radius: 5px;
-            margin-right: 10px;
+            padding: 5px; /* Add padding */
+            font-size: 1em; /* Set font size */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Round corners */
+            margin-right: 10px; /* Add margin to the right */
         }
         .search-container button {
-            padding: 6px 10px;
-            background-color: #fff;
-            color: #ff0000;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+            padding: 6px 10px; /* Add padding */
+            background-color: #fff; /* Set button background color */
+            color: #ff0000; /* Set button text color */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Round corners */
+            cursor: pointer; /* Change cursor to pointer */
         }
         .search-container button:hover {
-            background-color: #ff9999;
+            background-color: #ff9999; /* Change background on hover */
         }
     
         .auth-buttons {
-            display: flex;
-            gap: 10px;
+            display: flex; /* Use flexbox for authentication buttons */
+            gap: 10px; /* Add gap between buttons */
         }
         .auth-buttons a {
-            background-color: white;
-            color: red;
-            padding: 5px 5px;
-            border-radius: 5px;
-            text-decoration: none;
+            background-color: white; /* Set button background color */
+            color: red; /* Set button text color */
+            padding: 5px 5px; /* Add padding */
+            border-radius: 5px; /* Round corners */
+            text-decoration: none; /* Remove underline */
         }
         .auth-buttons a:hover {
-            background-color: #ff9999;
+            background-color: #ff9999; /* Change background on hover */
         }
     
         .main-container {
-            padding: 20px;
-            flex-grow: 1;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            padding: 20px; /* Add padding */
+            flex-grow: 1; /* Allow this section to grow */
+            display: flex; /* Use flexbox for layout */
+            flex-wrap: wrap; /* Allow wrapping of items */
+            justify-content: center; /* Center items */
         }
     
         .movie-card {
-            background-color: #222;
-            margin: 10px;
-            padding: 10px;
-            width: calc(100% - 20px);
-            border-radius: 5px;
-            text-align: center;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #222; /* Set card background color */
+            margin: 10px; /* Add margin */
+            padding: 10px; /* Add padding */
+            width: calc(100% - 20px); /* Set width */
+            border-radius: 5px; /* Round corners */
+            text-align: center; /* Center text */
+            overflow: hidden; /* Hide overflow */
+            display: flex; /* Use flexbox for layout */
+            flex-direction: column; /* Arrange children in a column */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition effects */
         }
         .movie-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(79, 146, 245, 0.7);
+            transform: scale(1.05); /* Scale up on hover */
+            box-shadow: 0 4px 15px rgba(79, 146, 245, 0.7); /* Add shadow on hover */
         }
         .movie-card h3 {
-            color: white;
-            margin: 0;
+            color: white; /* Set title color to white */
+            margin: 0; /* Remove margin */
         }
     
         .movie-card img {
-            max-width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 5px;
-            margin-bottom: 10px;
+            max-width: 100%; /* Set max width */
+            height: 300px; /* Set height */
+            object-fit: cover; /* Cover the area */
+            border-radius: 5px; /* Round corners */
+            margin-bottom: 10px; /* Add margin below */
         }
     
         .form-container {
-            background-color: #222;
-            padding: 30px;
-            border-radius: 10px;
-            width: 100%;
-            max-width: 500px;
-            margin-top: 20px;
+            background-color: #222; /* Set form background color */
+            padding: 30px; /* Add padding */
+            border-radius: 10px; /* Round corners */
+            width: 100%; /* Set width */
+            max-width: 500px; /* Set max width */
+            margin-top: 20px; /* Add margin above */
         }
     
         .form-group {
-            margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
+            margin-bottom: 20px; /* Add margin below */
+            display: flex; /* Use flexbox for layout */
+            flex-direction: column; /* Arrange children in a column */
         }
     
         .form-group label {
-            margin-bottom: 5px;
-            font-weight: bold;
+            margin-bottom: 5px; /* Add margin below */
+            font-weight: bold; /* Make label bold */
         }
     
         .form-group input {
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-            width: 100%;
-            box-sizing: border-box;
-            font-size: 1rem;
+            padding: 10px; /* Add padding */
+            border-radius: 5px; /* Round corners */
+            border: none; /* Remove border */
+            width: 100%; /* Set width */
+            box-sizing: border-box; /* Include padding in width */
+            font-size: 1rem; /* Set font size */
         }
     
         .register-btn {
-            background-color: red;
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            font-size: 1.2rem;
-            font-weight: bold;
-            transition: background-color 0.3s;
+            background-color: red; /* Set button background color */
+            color: white; /* Set button text color */
+            padding: 12px; /* Add padding */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Round corners */
+            cursor: pointer; /* Change cursor to pointer */
+            width: 100%; /* Set width */
+            font-size: 1.2rem; /* Set font size */
+            font-weight: bold; /* Make text bold */
+            transition: background-color 0.3s; /* Add transition effect */
         }
     
         .register-btn:hover {
-            background-color: darkred;
+            background-color: darkred; /* Change background on hover */
         }
         .trailer-container {
-            margin-bottom: 20px;
+            margin-bottom: 20px; /* Add margin below */
         }
         .review-button-container {
-            margin-top: 20px;
-            text-align: center;
+            margin-top: 20px; /* Add margin above */
+            text-align: center; /* Center text */
         }
 
         .review-button {
-            background-color: white;
-            color: red;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1em;
-            transition: background-color 0.3s ease;
+            background-color: white; /* Set button background color */
+            color: red; /* Set button text color */
+            padding: 10px 20px; /* Add padding */
+            border-radius: 5px; /* Round corners */
+            text-decoration: none; /* Remove underline */
+            font-weight: bold; /* Make text bold */
+            font-size: 1.1em; /* Set font size */
+            transition: background-color 0.3s ease; /* Add transition effect */
         }
 
         .review-button:hover {
-            background-color: #ff9999;
+            background-color: #ff9999; /* Change background on hover */
         }
 
         table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    background-color: #fffafa; /* Set table background to white */
-    }
+            width: 100%; /* Set table width */
+            border-collapse: collapse; /* Collapse borders */
+            margin: 20px 0; /* Add margin */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+            background-color: #fffafa; /* Set table background to white */
+        }
 
-    th, td {
-        
-    background-color: rgba(79, 146, 245, 0.7); /* Header background */
-    color: white; /* Header text color */
-    font-size: 1.5em; /* Increase font size */
-    text-align: left; /* Center the text */
-    padding: 15px; /* Add more padding for a better look */
-    border-bottom: 2px solid rgba(79, 146, 245, 0.9); /* Thicker bottom border */
-    text-transform: uppercase; /* Make text uppercase */
-    letter-spacing: 1px; /* Add spacing between letters */
+        th, td {
+            background-color: rgba(79, 146, 245, 0.7); /* Header background */
+            color: white; /* Header text color */
+            font-size: 1.5em; /* Increase font size */
+            text-align: left; /* Align text to the left */
+            padding: 15px; /* Add padding */
+            border-bottom: 2px solid rgba(79, 146, 245, 0.9); /* Thicker bottom border */
+            text-transform: uppercase; /* Make text uppercase */
+            letter-spacing: 1px; /* Add spacing between letters */
+        }
 
-    }
+        th {
+            background-color: rgba(79, 146, 245, 0.7); /* Header background */
+            color: rgba(79, 146, 245, 0.7); /* Header text color */
+        }
 
-    th {
-    background-color: rgba(79, 146, 245, 0.7);/* Header background */
-    color: rgba(79, 146, 245, 0.7);; /* Header text color */
-    }
+        tr:hover {
+            background-color: #02010f; /* Change background on row hover */
+        }
 
-    tr:hover {
-    background-color: #02010f; /* Light gray on row hover */
-    }
+        .delete-button {
+            background-color: rgba(79, 146, 245, 0.7); /* Delete button color */
+            color: white; /* Set text color */
+            border: none; /* Remove border */
+            padding: 12px 20px; /* Increase padding for a larger button */
+            border-radius: 5px; /* Round corners */
+            cursor: pointer; /* Change cursor to pointer */
+            transition: background-color 0.3s, transform 0.3s; /* Add transition for scaling */
+            font-size: 1.1em; /* Increase font size */
+            font-weight: bold; /* Make text bold */
+        }
 
-    .delete-button {
-    background-color: rgba(79, 146, 245, 0.7); /* Delete button color */
-    color: white;
-    border: none;
-    padding: 12px 20px; /* Increase padding for a larger button */
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s; /* Add transition for scaling */
-    font-size: 1.1em; /* Increase font size */
-    font-weight: bold; /* Make text bold */
-}
+        .delete-button:hover {
+            background-color: rgba(79, 146, 245, 0.7); /* Darker color on hover */
+            transform: scale(1.05); /* Slightly scale up on hover */
+        }
 
-.delete-button:hover {
-    background-color: rgba(79, 146, 245, 0.7); /* Darker red on hover */
-    transform: scale(1.05); /* Slightly scale up on hover */
-}
-
-    .no-movies {
-    text-align: center;
-    font-size: 1.2em;
-    color: #777;
-    }
-    .text-right {
-    text-align: right;
-    }
+        .no-movies {
+            text-align: center; /* Center text */
+            font-size: 1.2em; /* Set font size */
+            color: #777; /* Set text color */
+        }
+        .text-right {
+            text-align: right; /* Align text to the right */
+        }
     </style>
     
 </head>
 <body>
     <header>
-        <%- include('partials/header.ejs') %>
+        <%- include('partials/header.ejs') %> <!-- Include the header partial -->
     </header>
     <nav>
         <div class="nav-links">
-            <a href="/">Home</a>
+            <a href="/">Home</a> <!-- Link to home page -->
             <div class="genres-button">
-                <a href="#">Genres</a>
+                <a href="#">Genres</a> <!-- Link to genres dropdown -->
                 <div class="genres-dropdown">
-                    <a href="http://localhost:3001/api/movies/category/1">Sci-Fi</a>
-                    <a href="http://localhost:3001/api/movies/category/2">Romance</a>
-                    <a href="http://localhost:3001/api/movies/category/3">Thriller</a>
-                    <a href="#">Horror</a>
+                    <a href="http://localhost:3001/api/movies/category/1">Sci-Fi</a> <!-- Link to Sci-Fi category -->
+                    <a href="http://localhost:3001/api/movies/category/2">Romance</a> <!-- Link to Romance category -->
+                    <a href="http://localhost:3001/api/movies/category/3">Thriller</a> <!-- Link to Thriller category -->
+                    <a href="#">Horror</a> <!-- Link to Horror category -->
                 </div>
             </div>
         </div>
         <div class="search-container">
-            <form action="/api/movies/search/movie" method="GET" >
-                <input type="text" name="query" placeholder="Search movies...">
-                <button type="submit">Search</button>
+            <form action="/api/movies/search/movie" method="GET"> <!-- Form for searching movies -->
+                <input type="text" name="query" placeholder="Search movies..."> <!-- Input for search query -->
+                <button type="submit">Search</button> <!-- Search button -->
             </form>
         </div>
         <div class="auth-buttons">
-            <% if (!session.userId) { %>
-                <a href="http://localhost:3001/api/users/login">Login</a>
-                <a href="http://localhost:3001/api/users/register">Register</a>
-            <% } else { %>
-                <a href="http://localhost:3001/api/watchList/<%= session.userId %>">My Watchlist</a>
-                <a href="http://localhost:3001/api/users/logout">Logout</a>
+            <% if (!session.userId) { %> <!-- Check if user is not logged in -->
+                <a href="http://localhost:3001/api/users/login">Login</a> <!-- Link to login page -->
+                <a href="http://localhost:3001/api/users/register">Register</a> <!-- Link to registration page -->
+            <% } else { %> <!-- If user is logged in -->
+                <a href="http://localhost:3001/api/watchList/<%= session.userId %>">My Watchlist</a> <!-- Link to user's watchlist -->
+                <a href="http://localhost:3001/api/users/logout">Logout</a> <!-- Link to logout -->
             <% } %>
         </div>
     </nav>
 
     <div class="main-container">
-        <%- body %>
+        <%- body %> <!-- Render the main content -->
     </div>
 </body>
 <footer>
-    <%- include('partials/footer.ejs') %> 
+    <%- include('partials/footer.ejs') %> <!-- Include the footer partial -->
 </footer>   
 </html>
